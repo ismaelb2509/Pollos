@@ -1,29 +1,26 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300" role="img">
  <defs>
-  <linearGradient id="bd6" x1="0" y1="0" x2=".85" y2="1">
+  <linearGradient id="bx1" x1="0" y1="0" x2=".85" y2="1">
    <stop offset="0" stop-color="#2E170C"/><stop offset="1" stop-color="#6A2F10"/>
   </linearGradient>
-  <radialGradient id="gd6" cx="50%" cy="44%" r="58%">
+  <radialGradient id="gx1" cx="50%" cy="44%" r="58%">
    <stop offset="0" stop-color="#FFD07E" stop-opacity=".26"/>
    <stop offset="1" stop-color="#FFD07E" stop-opacity="0"/>
   </radialGradient>
-  <pattern id="pd6" width="14" height="14" patternTransform="rotate(35)" patternUnits="userSpaceOnUse">
+  <pattern id="px1" width="14" height="14" patternTransform="rotate(35)" patternUnits="userSpaceOnUse">
    <line x1="0" y1="0" x2="0" y2="14" stroke="#FFD07E" stroke-opacity=".06" stroke-width="3"/>
   </pattern>
  </defs>
- <rect width="400" height="300" fill="url(#bd6)"/>
- <rect width="400" height="300" fill="url(#pd6)"/>
- <rect width="400" height="300" fill="url(#gd6)"/>
+ <rect width="400" height="300" fill="url(#bx1)"/>
+ <rect width="400" height="300" fill="url(#px1)"/>
+ <rect width="400" height="300" fill="url(#gx1)"/>
  <circle cx="200" cy="144" r="111" fill="#FFD07E" fill-opacity=".07" stroke="#FFD07E" stroke-opacity=".16" stroke-width="2"/>
  <g transform="translate(113.0 57.0) scale(1.7400)" fill="none" stroke="#FFD07E"
     stroke-width="5" stroke-linecap="round" stroke-linejoin="round" color="#FFD07E">
   
- <ellipse cx="50" cy="56" rx="42" ry="26"/>
- <ellipse cx="50" cy="52" rx="31" ry="17"/>
- <circle cx="38" cy="48" r="7" fill="currentColor" stroke="none"/>
- <circle cx="59" cy="44" r="6" fill="currentColor" stroke="none"/>
- <circle cx="63" cy="59" r="5" fill="currentColor" stroke="none"/>
- <path d="M8 62c0 12 19 22 42 22s42-10 42-22"/>
+ <path d="M14 58c0-18 16-32 38-32s34 12 34 28-14 30-34 32-38-10-38-28Z"/>
+ <path d="M32 50c12-7 26-6 38 3"/>
+ <path d="M40 20c4-5-3-9 1-14M62 20c4-5-3-9 1-14"/>
 
  </g>
  <ellipse cx="200" cy="264" rx="77" ry="8" fill="#000" fill-opacity=".26"/>

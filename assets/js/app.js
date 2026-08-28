@@ -1,26 +1,31 @@
 /* =====================================================================
-   Pollos El Brasero — lógica de la web
+   Pollo Express Playa San Juan — lógica de la web
    ---------------------------------------------------------------------
-   ⚙️  EDITA SOLO ESTE BLOQUE PARA PERSONALIZAR EL NEGOCIO.
-   Todo lo demás se actualiza solo (teléfono, WhatsApp, mapa, nombre…).
+   ⚙️  EDITA SOLO ESTE BLOQUE. Todo lo demás se actualiza solo.
    ===================================================================== */
 const NEGOCIO = {
-  nombre:     "Pollos El Brasero",
-  telefono:   "+00000000000",          // en formato internacional, sin espacios
-  whatsapp:   "00000000000",           // solo dígitos: país + número, sin + ni espacios
-  direccion:  "Calle Principal 123, Tu Ciudad",
-  maps:       "https://maps.app.goo.gl/Ke66gbJ1sh1VKZMR8",   // enlace a la ficha de Google
-  mapaEmbed:  "",                      // pega aquí el src del iframe de Google Maps ("Compartir → Insertar un mapa")
-  moneda:     "$",
-  // Horario: 0 = domingo … 6 = sábado. [apertura, cierre] en horas decimales (22.5 = 22:30)
+  nombre:     "Pollo Express",
+  nombreLargo:"Pollo Express Playa San Juan",
+  telefono:   "+34966765321",
+  telefonoTxt:"966 76 53 21",
+  whatsapp:   "",                       // pon aquí el móvil de pedidos (34XXXXXXXXX) y aparecerán los botones de WhatsApp
+  email:      "polloexpressfontana@gmail.com",
+  direccion:  "Av. San Sebastián, 11 · 03540 Playa de San Juan, Alicante",
+  maps:       "https://maps.app.goo.gl/Ke66gbJ1sh1VKZMR8",
+  mapaEmbed:  "",                       // Google Maps → Compartir → Insertar un mapa → copia el src del iframe
+  instagram:  "https://www.instagram.com/polloexpressplayasanjuan/",
+  video:      "assets/fotos/local.mp4", // si existe el archivo, se reproduce solo en la sección de vídeo
+
+  /* Horario real. 0 = domingo … 6 = sábado. Cada turno es [apertura, cierre]
+     en horas decimales (16.5 = 16:30). Un día sin turnos = cerrado.        */
   horario: {
-    0: [11, 21],
-    1: [11, 22],
-    2: [11, 22],
-    3: [11, 22],
-    4: [11, 22],
-    5: [11, 23.5],
-    6: [11, 23.5]
+    0: [[12, 16.5], [19.5, 23]],   // domingo
+    1: [[12, 16.5], [19.5, 23]],   // lunes
+    2: [],                         // martes: cerrado
+    3: [[12, 16.5], [19.5, 23]],
+    4: [[12, 16.5], [19.5, 23]],
+    5: [[12, 16.5], [19.5, 23]],
+    6: [[12, 16.5], [19.5, 23]]
   }
 };
 
@@ -29,30 +34,32 @@ const NEGOCIO = {
 (function () {
   'use strict';
 
-  const $  = (sel, ctx = document) => ctx.querySelector(sel);
-  const $$ = (sel, ctx = document) => Array.from(ctx.querySelectorAll(sel));
+  const $  = (s, c = document) => c.querySelector(s);
+  const $$ = (s, c = document) => Array.from(c.querySelectorAll(s));
 
-  const money = n =>
-    NEGOCIO.moneda + n.toFixed(2).replace('.', ',');
-
-  /* ---------------- Datos del negocio en la página ---------------- */
-  function aplicarDatosNegocio() {
+  /* ---------------- Datos del negocio ---------------- */
+  function aplicarDatos() {
     $$('[data-biz="name"]').forEach(el => { el.textContent = NEGOCIO.nombre; });
+    $$('[data-biz="fullname"]').forEach(el => { el.textContent = NEGOCIO.nombreLargo; });
     $$('[data-biz="address"]').forEach(el => { el.textContent = NEGOCIO.direccion; });
-    $$('[data-biz="phone"]').forEach(el => { el.textContent = NEGOCIO.telefono; });
-    $$('[data-cur]').forEach(el => { el.textContent = NEGOCIO.moneda; });
+    $$('[data-biz="phone"]').forEach(el => { el.textContent = NEGOCIO.telefonoTxt; });
+    $$('[data-biz="email"]').forEach(el => { el.textContent = NEGOCIO.email; });
 
-    $$('[data-tel-link]').forEach(el => {
-      el.href = 'tel:' + NEGOCIO.telefono.replace(/[^\d+]/g, '');
-    });
-    $$('[data-maps-link]').forEach(el => { el.href = NEGOCIO.maps; });
+    $$('[data-tel-link]').forEach(el => { el.href = 'tel:' + NEGOCIO.telefono; });
+    $$('[data-mail-link]').forEach(el => { el.href = 'mailto:' + NEGOCIO.email; });
+    $$('[data-maps-link]').forEach(el => { el.href = NEGOCIO.maps; el.target = '_blank'; el.rel = 'noopener'; });
+    $$('[data-ig-link]').forEach(el => { el.href = NEGOCIO.instagram; el.target = '_blank'; el.rel = 'noopener'; });
+
+    // Los botones de WhatsApp solo aparecen si hay número configurado
+    const wa = NEGOCIO.whatsapp.replace(/\D/g, '');
     $$('[data-wa-link]').forEach(el => {
-      el.href = enlaceWhatsApp('¡Hola! Quiero hacer un pedido 🍗');
+      if (!wa) { el.hidden = true; return; }
+      el.hidden = false;
+      el.href = 'https://wa.me/' + wa + '?text=' +
+        encodeURIComponent('¡Hola ' + NEGOCIO.nombre + '! Quería hacer un pedido para recoger 🍗');
       el.target = '_blank';
       el.rel = 'noopener';
     });
-
-    document.title = NEGOCIO.nombre + ' — Pollo asado a la leña | Pedidos a domicilio';
 
     const embed = $('[data-map-embed]');
     if (embed && NEGOCIO.mapaEmbed) {
@@ -64,33 +71,24 @@ const NEGOCIO = {
     if (year) year.textContent = new Date().getFullYear();
   }
 
-  function enlaceWhatsApp(texto) {
-    return 'https://wa.me/' + NEGOCIO.whatsapp.replace(/\D/g, '') +
-           '?text=' + encodeURIComponent(texto);
-  }
-
-  /* ---------------- Header pegajoso + nav activa ---------------- */
+  /* ---------------- Header y navegación ---------------- */
   const header = $('.site-header');
   const secciones = $$('main section[id]');
   const navLinks = $$('.nav a');
 
   function onScroll() {
     header.classList.toggle('is-stuck', window.scrollY > 12);
-
     let actual = '';
-    const y = window.scrollY + 140;
+    const y = window.scrollY + 150;
     secciones.forEach(s => { if (s.offsetTop <= y) actual = s.id; });
-    navLinks.forEach(a =>
-      a.classList.toggle('is-active', a.getAttribute('href') === '#' + actual)
-    );
+    navLinks.forEach(a => a.classList.toggle('is-active', a.getAttribute('href') === '#' + actual));
   }
   window.addEventListener('scroll', onScroll, { passive: true });
 
-  /* ---------------- Menú móvil ---------------- */
   const burger = $('#burger');
   const mobileNav = $('#mobile-nav');
 
-  function cerrarMenuMovil() {
+  function cerrarMenu() {
     mobileNav.hidden = true;
     burger.setAttribute('aria-expanded', 'false');
     burger.setAttribute('aria-label', 'Abrir menú');
@@ -98,259 +96,171 @@ const NEGOCIO = {
   }
 
   burger.addEventListener('click', () => {
-    const abierto = burger.getAttribute('aria-expanded') === 'true';
-    if (abierto) {
-      cerrarMenuMovil();
-    } else {
-      mobileNav.hidden = false;
-      burger.setAttribute('aria-expanded', 'true');
-      burger.setAttribute('aria-label', 'Cerrar menú');
-      document.body.style.overflow = 'hidden';
-    }
+    if (burger.getAttribute('aria-expanded') === 'true') return cerrarMenu();
+    mobileNav.hidden = false;
+    burger.setAttribute('aria-expanded', 'true');
+    burger.setAttribute('aria-label', 'Cerrar menú');
+    document.body.style.overflow = 'hidden';
   });
-  mobileNav.addEventListener('click', e => {
-    if (e.target.closest('a')) cerrarMenuMovil();
+  mobileNav.addEventListener('click', e => { if (e.target.closest('a')) cerrarMenu(); });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && !mobileNav.hidden) cerrarMenu();
+    if (e.key === 'Escape') cerrarLightbox();
   });
 
-  /* ---------------- Filtros del menú ---------------- */
+  /* ---------------- Filtros de la carta ---------------- */
   const tabs = $$('.tab');
-  const platos = $$('.dish');
+  const grupos = $$('.carta-grupo');
 
   tabs.forEach(tab => {
     tab.addEventListener('click', () => {
-      tabs.forEach(t => {
-        t.classList.toggle('is-active', t === tab);
-        t.setAttribute('aria-pressed', t === tab ? 'true' : 'false');
-      });
       const cat = tab.dataset.filter;
-      platos.forEach(p => {
-        const visible = p.dataset.cat === cat;
-        p.hidden = !visible;
+      tabs.forEach(t => {
+        const on = t === tab;
+        t.classList.toggle('is-active', on);
+        t.setAttribute('aria-pressed', on ? 'true' : 'false');
+      });
+      grupos.forEach(g => {
+        const visible = cat === 'todo' || g.dataset.cat === cat;
+        g.hidden = !visible;
         if (visible) {
-          p.classList.remove('is-in');
-          requestAnimationFrame(() => p.classList.add('is-in'));
+          g.classList.remove('is-in');
+          requestAnimationFrame(() => g.classList.add('is-in'));
         }
       });
     });
   });
 
-  function filtroInicial() {
-    const activa = $('.tab.is-active');
-    if (!activa) return;
-    platos.forEach(p => { p.hidden = p.dataset.cat !== activa.dataset.filter; });
-  }
-
-  /* ---------------- Carrito ---------------- */
-  const CLAVE = 'brasero-pedido-v1';
-  let pedido = [];
-
-  try {
-    pedido = JSON.parse(localStorage.getItem(CLAVE) || '[]');
-    if (!Array.isArray(pedido)) pedido = [];
-  } catch (e) { pedido = []; }
-
-  const fab       = $('#cart-fab');
-  const contador  = $('#cart-count');
-  const panel     = $('#cart');
-  const backdrop  = $('#cart-backdrop');
-  const lista     = $('#cart-items');
-  const vacio     = $('#cart-empty');
-  const pie       = $('#cart-foot');
-  const totalEl   = $('#cart-total');
-
-  function guardar() {
-    try { localStorage.setItem(CLAVE, JSON.stringify(pedido)); } catch (e) {}
-  }
-
-  const total = () => pedido.reduce((s, i) => s + i.precio * i.cantidad, 0);
-  const unidades = () => pedido.reduce((s, i) => s + i.cantidad, 0);
-
-  function pintarCarrito() {
-    const n = unidades();
-    contador.textContent = n;
-    fab.hidden = n === 0;
-
-    lista.innerHTML = '';
-    const hayItems = pedido.length > 0;
-    vacio.hidden = hayItems;
-    pie.hidden = !hayItems;
-    lista.hidden = !hayItems;
-
-    pedido.forEach((item, i) => {
-      const row = document.createElement('div');
-      row.className = 'cart-row';
-      row.innerHTML =
-        '<h4></h4>' +
-        '<span class="row-price"></span>' +
-        '<div class="qty">' +
-          '<button type="button" data-menos aria-label="Quitar una unidad">−</button>' +
-          '<span></span>' +
-          '<button type="button" data-mas aria-label="Añadir una unidad">+</button>' +
-          '<button type="button" class="remove" data-quitar>Quitar</button>' +
-        '</div>';
-
-      row.querySelector('h4').textContent = item.nombre;
-      row.querySelector('.row-price').textContent = money(item.precio * item.cantidad);
-      row.querySelector('.qty span').textContent = item.cantidad;
-
-      row.querySelector('[data-menos]').addEventListener('click', () => cambiar(i, -1));
-      row.querySelector('[data-mas]').addEventListener('click', () => cambiar(i, 1));
-      row.querySelector('[data-quitar]').addEventListener('click', () => {
-        pedido.splice(i, 1);
-        guardar();
-        pintarCarrito();
-      });
-
-      lista.appendChild(row);
-    });
-
-    totalEl.textContent = money(total());
-  }
-
-  function cambiar(i, delta) {
-    pedido[i].cantidad += delta;
-    if (pedido[i].cantidad <= 0) pedido.splice(i, 1);
-    guardar();
-    pintarCarrito();
-  }
-
-  function anadir(nombre, precio, boton) {
-    const existente = pedido.find(i => i.nombre === nombre);
-    if (existente) existente.cantidad += 1;
-    else pedido.push({ nombre, precio, cantidad: 1 });
-
-    guardar();
-    pintarCarrito();
-
-    fab.classList.remove('bump');
-    void fab.offsetWidth;
-    fab.classList.add('bump');
-
-    if (boton && boton.classList.contains('add')) {
-      const original = boton.textContent;
-      boton.classList.add('is-added');
-      boton.textContent = '✓ Añadido';
-      setTimeout(() => {
-        boton.classList.remove('is-added');
-        boton.textContent = original;
-      }, 1200);
-    }
-
-    toast(nombre + ' añadido a tu pedido');
-  }
-
-  document.addEventListener('click', e => {
-    const btn = e.target.closest('[data-add]');
-    if (!btn) return;
-
-    const card = btn.closest('.dish');
-    const nombre = btn.dataset.name || (card && card.dataset.name);
-    const precio = parseFloat(btn.dataset.price || (card && card.dataset.price) || '0');
-    if (!nombre || !precio) return;
-
-    anadir(nombre, precio, btn);
-  });
-
-  function abrirCarrito() {
-    panel.hidden = false;
-    backdrop.hidden = false;
-    fab.setAttribute('aria-expanded', 'true');
-    document.body.style.overflow = 'hidden';
-    const primero = panel.querySelector('input, button');
-    if (primero) primero.focus();
-  }
-  function cerrarCarrito() {
-    panel.hidden = true;
-    backdrop.hidden = true;
-    fab.setAttribute('aria-expanded', 'false');
-    document.body.style.overflow = '';
-  }
-
-  fab.addEventListener('click', abrirCarrito);
-  $('#cart-close').addEventListener('click', cerrarCarrito);
-  backdrop.addEventListener('click', cerrarCarrito);
-  $$('[data-close-cart]').forEach(el => el.addEventListener('click', cerrarCarrito));
-  document.addEventListener('keydown', e => {
-    if (e.key !== 'Escape') return;
-    if (!panel.hidden) cerrarCarrito();
-    if (!mobileNav.hidden) cerrarMenuMovil();
-  });
-
-  /* ---------------- Enviar pedido por WhatsApp ---------------- */
-  $('#cart-send').addEventListener('click', () => {
-    if (!pedido.length) return;
-
-    const nombre = $('#cart-name').value.trim();
-    const dir = $('#cart-addr').value.trim();
-
-    const lineas = [
-      '¡Hola ' + NEGOCIO.nombre + '! Quiero hacer este pedido:',
-      ''
-    ];
-    pedido.forEach(i => {
-      lineas.push('• ' + i.cantidad + '× ' + i.nombre + ' — ' + money(i.precio * i.cantidad));
-    });
-    lineas.push('');
-    lineas.push('TOTAL: ' + money(total()));
-    if (nombre) lineas.push('Nombre: ' + nombre);
-    if (dir) lineas.push('Entrega: ' + dir);
-    lineas.push('');
-    lineas.push('¿Me confirmáis el tiempo, por favor? ¡Gracias!');
-
-    window.open(enlaceWhatsApp(lineas.join('\n')), '_blank', 'noopener');
-  });
-
-  /* ---------------- Aviso flotante ---------------- */
-  const toastEl = $('#toast');
-  let toastTimer;
-  function toast(msg) {
-    toastEl.textContent = msg;
-    toastEl.classList.add('is-visible');
-    clearTimeout(toastTimer);
-    toastTimer = setTimeout(() => toastEl.classList.remove('is-visible'), 2200);
-  }
-
   /* ---------------- ¿Abierto ahora? ---------------- */
+  const DIAS = ['domingo', 'lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado'];
+
+  function hhmm(dec) {
+    const h = Math.floor(dec);
+    const m = Math.round((dec - h) * 60);
+    return h + ':' + String(m).padStart(2, '0');
+  }
+
   function estadoApertura() {
-    const pill = $('#open-pill');
-    if (!pill) return;
+    const pills = $$('[data-open-pill]');
+    if (!pills.length) return;
 
     const ahora = new Date();
-    const tramo = NEGOCIO.horario[ahora.getDay()];
+    const dia = ahora.getDay();
     const hora = ahora.getHours() + ahora.getMinutes() / 60;
+    const turnos = NEGOCIO.horario[dia] || [];
 
-    if (tramo && hora >= tramo[0] && hora < tramo[1]) {
-      pill.textContent = 'Abierto ahora';
-      pill.classList.remove('is-closed');
+    const abierto = turnos.find(t => hora >= t[0] && hora < t[1]);
+    let texto, cerrado = true;
+
+    if (abierto) {
+      texto = 'Abierto ahora · hasta las ' + hhmm(abierto[1]);
+      cerrado = false;
     } else {
-      pill.textContent = 'Cerrado ahora';
-      pill.classList.add('is-closed');
+      const siguiente = turnos.find(t => hora < t[0]);
+      if (siguiente) {
+        texto = 'Abrimos hoy a las ' + hhmm(siguiente[0]);
+      } else {
+        let d = dia, i = 0;
+        do { d = (d + 1) % 7; i++; } while (!(NEGOCIO.horario[d] || []).length && i < 7);
+        const prox = NEGOCIO.horario[d][0];
+        texto = (i === 1 ? 'Abrimos mañana' : 'Abrimos el ' + DIAS[d]) + ' a las ' + hhmm(prox[0]);
+      }
     }
+
+    pills.forEach(p => {
+      p.textContent = texto;
+      p.classList.toggle('is-closed', cerrado);
+    });
+  }
+
+  /* ---------------- Fotos del local con reserva ----------------
+     Si todavía no está la foto real, entra la ilustración y la web
+     nunca se ve rota.                                              */
+  function fotosDeReserva() {
+    $$('img[data-fallback]').forEach(img => {
+      img.addEventListener('error', function onError() {
+        img.removeEventListener('error', onError);
+        img.src = img.dataset.fallback;
+        img.classList.add('es-ilustracion');
+      });
+      if (img.complete && img.naturalWidth === 0) img.dispatchEvent(new Event('error'));
+    });
+  }
+
+  /* ---------------- Vídeo del local ---------------- */
+  function video() {
+    const hueco = $('#video-slot');
+    if (!hueco || !NEGOCIO.video) return;
+
+    fetch(NEGOCIO.video, { method: 'HEAD' })
+      .then(r => {
+        if (!r.ok) return;
+        const v = document.createElement('video');
+        v.src = NEGOCIO.video;
+        v.muted = true;
+        v.loop = true;
+        v.playsInline = true;
+        v.autoplay = true;
+        v.setAttribute('aria-label', 'Vídeo del asador');
+        v.addEventListener('loadeddata', () => {
+          hueco.classList.add('tiene-video');
+          hueco.prepend(v);
+          v.play().catch(() => { v.controls = true; });
+        });
+      })
+      .catch(() => { /* sin vídeo todavía: se queda la foto de portada */ });
+  }
+
+  /* ---------------- Galería ampliable ---------------- */
+  const lightbox = $('#lightbox');
+  const lightboxImg = $('#lightbox-img');
+  let ultimoFoco = null;
+
+  function abrirLightbox(src, alt) {
+    if (!lightbox) return;
+    ultimoFoco = document.activeElement;
+    lightboxImg.src = src;
+    lightboxImg.alt = alt || '';
+    lightbox.hidden = false;
+    document.body.style.overflow = 'hidden';
+    $('#lightbox-close').focus();
+  }
+  function cerrarLightbox() {
+    if (!lightbox || lightbox.hidden) return;
+    lightbox.hidden = true;
+    document.body.style.overflow = '';
+    if (ultimoFoco) ultimoFoco.focus();
+  }
+  $$('.gallery button').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const img = btn.querySelector('img');
+      abrirLightbox(img.currentSrc || img.src, img.alt);
+    });
+  });
+  if (lightbox) {
+    $('#lightbox-close').addEventListener('click', cerrarLightbox);
+    lightbox.addEventListener('click', e => { if (e.target === lightbox) cerrarLightbox(); });
   }
 
   /* ---------------- Animaciones al hacer scroll ---------------- */
   function reveals() {
     const items = $$('.reveal');
-    if (!('IntersectionObserver' in window)) {
-      items.forEach(i => i.classList.add('is-in'));
-      return;
-    }
+    if (!('IntersectionObserver' in window)) return items.forEach(i => i.classList.add('is-in'));
     const io = new IntersectionObserver((entries, obs) => {
       entries.forEach((entry, idx) => {
         if (!entry.isIntersecting) return;
-        setTimeout(() => entry.target.classList.add('is-in'), Math.min(idx * 70, 350));
+        setTimeout(() => entry.target.classList.add('is-in'), Math.min(idx * 70, 320));
         obs.unobserve(entry.target);
       });
     }, { rootMargin: '0px 0px -8% 0px', threshold: .1 });
     items.forEach(i => io.observe(i));
   }
 
-  /* ---------------- Contadores de la sección de datos ---------------- */
+  /* ---------------- Contadores ---------------- */
   function contadores() {
     const nums = $$('[data-count]');
     if (!nums.length || !('IntersectionObserver' in window)) {
-      nums.forEach(n => { n.textContent = n.dataset.count.replace('.', ','); });
-      return;
+      return nums.forEach(n => { n.textContent = n.dataset.count.replace('.', ','); });
     }
     const io = new IntersectionObserver((entries, obs) => {
       entries.forEach(entry => {
@@ -358,16 +268,12 @@ const NEGOCIO = {
         const el = entry.target;
         const objetivo = parseFloat(el.dataset.count);
         const dec = parseInt(el.dataset.decimals || '0', 10);
-        const inicio = performance.now();
-        const dur = 1100;
-
+        const t0 = performance.now();
         (function paso(t) {
-          const p = Math.min((t - inicio) / dur, 1);
-          const eased = 1 - Math.pow(1 - p, 3);
-          el.textContent = (objetivo * eased).toFixed(dec).replace('.', ',');
+          const p = Math.min((t - t0) / 1100, 1);
+          el.textContent = (objetivo * (1 - Math.pow(1 - p, 3))).toFixed(dec).replace('.', ',');
           if (p < 1) requestAnimationFrame(paso);
-        })(inicio);
-
+        })(t0);
         obs.unobserve(el);
       });
     }, { threshold: .5 });
@@ -375,11 +281,12 @@ const NEGOCIO = {
   }
 
   /* ---------------- Arranque ---------------- */
-  aplicarDatosNegocio();
-  filtroInicial();
-  pintarCarrito();
+  aplicarDatos();
+  fotosDeReserva();
   estadoApertura();
+  video();
   reveals();
   contadores();
   onScroll();
+  setInterval(estadoApertura, 60000);
 })();

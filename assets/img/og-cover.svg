@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="Pollos El Brasero">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-label="Pollo Express Playa San Juan">
   <defs>
     <linearGradient id="obg" x1="0" y1="0" x2=".7" y2="1">
       <stop offset="0" stop-color="#150F0C"/>
@@ -17,9 +17,9 @@
   <rect width="1200" height="630" fill="url(#obg)"/>
   <rect width="1200" height="630" fill="url(#oglow)"/>
   <g transform="translate(80 236)">
-    <text font-family="Anton, Impact, 'Arial Narrow', sans-serif" font-size="96" fill="#FFF4E7" letter-spacing="2">POLLOS</text>
-    <text y="100" font-family="Anton, Impact, 'Arial Narrow', sans-serif" font-size="96" fill="url(#otxt)" letter-spacing="2">EL BRASERO</text>
-    <text y="164" font-family="Inter, Helvetica, Arial, sans-serif" font-size="30" fill="#BFAB9B">Marinado 24 h · asado a la leña · entrega en 30 min</text>
+    <text font-family="Anton, Impact, 'Arial Narrow', sans-serif" font-size="82" fill="#FFF4E7" letter-spacing="2">POLLO EXPRESS</text>
+    <text y="100" font-family="Anton, Impact, 'Arial Narrow', sans-serif" font-size="82" fill="url(#otxt)" letter-spacing="2">PLAYA SAN JUAN</text>
+    <text y="164" font-family="Inter, Helvetica, Arial, sans-serif" font-size="30" fill="#BFAB9B">Brasa de carbón en Playa de San Juan · 966 76 53 21</text>
   </g>
   <g transform="translate(742 74) scale(0.93)">
     <circle cx="260" cy="264" r="238" fill="#FF6A1F" opacity=".08"/>

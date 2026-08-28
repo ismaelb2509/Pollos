@@ -1,105 +1,109 @@
-# 🍗 Web para restaurante de pollos
+# 🔥 Pollo Express Playa San Juan — web
 
-Página web de una sola pantalla (*one-page*), rápida, responsive y pensada para
-**convertir visitas en pedidos**. Sin frameworks, sin build, sin base de datos:
-son tres archivos y se publica gratis en cualquier hosting estático.
+Web de una sola página para el asador de **Av. San Sebastián, 11 (Playa de San Juan,
+Alicante)**. Rápida, responsive y centrada en lo único que importa aquí: que se vea
+la brasa, se lea la carta y se pulse el teléfono.
+
+Sin carrito, sin frameworks, sin base de datos. Tres archivos y unas cuantas fotos.
 
 ---
 
-## ⚡ Personalizar en 2 minutos
+## 📸 Lo primero: las fotos
 
-Abre `assets/js/app.js` y edita **solo el bloque `NEGOCIO`** de arriba del todo:
+Las fotos y el vídeo del local van en **`assets/fotos/`** con los nombres que indica
+[`assets/fotos/LEEME.md`](assets/fotos/LEEME.md). Mientras un archivo no exista, la
+web muestra una ilustración de reserva hecha a medida, así que **nunca se ve rota**
+ni sale un icono de imagen partida.
+
+Cuando llegue el material real basta con arrastrarlo a esa carpeta. No hay que tocar
+código.
+
+## ⚙️ Datos del negocio
+
+Todo está en un único bloque, al principio de `assets/js/app.js`:
 
 ```js
 const NEGOCIO = {
-  nombre:    "Pollos El Brasero",                 // nombre del negocio
-  telefono:  "+00000000000",                      // formato internacional
-  whatsapp:  "00000000000",                       // solo dígitos: país + número
-  direccion: "Calle Principal 123, Tu Ciudad",
-  maps:      "https://maps.app.goo.gl/...",       // enlace a la ficha de Google
-  mapaEmbed: "",                                  // src del iframe de Google Maps
-  moneda:    "$",
-  horario: { 0:[11,21], 1:[11,22], /* … */ }      // 0 = domingo
+  nombre:     "Pollo Express",
+  telefono:   "+34966765321",
+  telefonoTxt:"966 76 53 21",
+  whatsapp:   "",          // pon el móvil (34XXXXXXXXX) y aparecen los botones de WhatsApp
+  direccion:  "Av. San Sebastián, 11 · 03540 Playa de San Juan, Alicante",
+  maps:       "https://maps.app.goo.gl/...",
+  mapaEmbed:  "",          // Google Maps → Compartir → Insertar un mapa → copia el src
+  instagram:  "https://www.instagram.com/polloexpressplayasanjuan/",
+  horario: { 1:[[12,16.5],[19.5,23]], 2:[] /* martes cerrado */, ... }
 };
 ```
 
-Eso actualiza automáticamente el nombre, los teléfonos, los enlaces de WhatsApp,
-el botón «Cómo llegar», la moneda y el cartel de **Abierto / Cerrado ahora**.
+De ahí salen solos: los botones de llamar, el enlace de Google Maps, el Instagram,
+el pie de página y el cartel **«Abierto ahora · hasta las 23:00»**, que se calcula
+con el horario real —incluido el martes cerrado— y se refresca cada minuto.
 
-### Lo que conviene tocar además
+## 🍗 La carta
 
-| Qué | Dónde |
-|---|---|
-| Platos, descripciones y precios | `index.html`, bloques `<article class="dish" …>` |
-| Combos | `index.html`, sección `#combos` |
-| Reseñas | `index.html`, sección `#resenas` — **cámbialas por reseñas reales de Google** |
-| Fotos | `assets/img/` — sustituye los `.svg` por fotos reales con el mismo nombre |
-| Datos SEO (dirección, horario) | `index.html`, bloque `application/ld+json` del `<head>` |
-| Colores de marca | `assets/css/styles.css`, variables `:root` (`--ember`, `--gold`, …) |
+Está en `index.html`, dentro de `<section id="carta">`. Cada plato es una línea:
 
-Para añadir un plato basta con copiar un bloque `<article class="dish">` y cambiar
-`data-name`, `data-price` y `data-cat` (`pollos`, `combos`, `extras`, `bebidas`).
-El carrito lo detecta solo.
+```html
+<li><div><b>Pollo entero</b><small>Con su jugo y alioli de la casa</small></div><span>12,50 €</span></li>
+```
 
-### Fotos reales
+Para añadir una sección nueva, copia un `<section class="carta-grupo" data-cat="...">`
+y añade su botón en las pestañas de arriba. Nada más.
 
-Las ilustraciones incluidas son SVG ligerísimos que funcionan como marcador de
-posición y **nunca se ven rotos**. Cuando tengas fotos del local:
-
-1. Recórtalas a 4:3 para el menú y 1:1 para la galería.
-2. Guárdalas en `.webp` (calidad 80) y pesarán ~40 kB cada una.
-3. Cambia la extensión en el `src` correspondiente de `index.html`.
-
----
+> **Ojo:** los platos y precios actuales son una **carta de muestra** montada a partir
+> de lo que mencionan las reseñas (pollo, costillas, secreto, patata asada, bravas,
+> té moruno). Hay que sustituirla por la carta real antes de publicar.
+>
+> Lo mismo con las opiniones: la sección «Lo que más se repite en Google» resume los
+> temas de las reseñas publicadas, no son citas literales. Conviene poner reseñas
+> textuales de la ficha de Google.
 
 ## 🚀 Publicar
 
-No hace falta compilar nada. Sube la carpeta tal cual:
+No hay que compilar nada:
 
 - **GitHub Pages** — Settings → Pages → Deploy from a branch → `/ (root)`.
-- **Netlify / Vercel / Cloudflare Pages** — arrastra la carpeta y listo.
+- **Netlify / Vercel / Cloudflare Pages** — arrastra la carpeta.
 - **Hosting clásico** — sube todo por FTP a `public_html`.
 
-Para probar en local:
+En local:
 
 ```bash
-python3 -m http.server 8080
-# abre http://localhost:8080
+python3 -m http.server 8080   # abre http://localhost:8080
 ```
 
----
+## ✅ Qué lleva
 
-## ✅ Qué incluye
-
-- **Pedido por WhatsApp**: el cliente arma su pedido con `+ Añadir`, pone nombre y
-  dirección, y se abre WhatsApp con el mensaje ya escrito y el total calculado.
-  El carrito se guarda en el navegador, así que no se pierde al recargar.
-- **Menú con pestañas** por categorías, precios y etiquetas (*Más vendido*,
-  *Picante*, *Fit*…).
-- **Combos destacados** con precio tachado para empujar el ticket medio.
-- **Cartel Abierto/Cerrado en vivo** calculado con el horario real.
-- **Barra fija en móvil** con Llamar · Menú · Pedir, siempre a un pulgar.
-- **SEO local listo**: datos estructurados `Restaurant` de Schema.org, Open Graph
-  para WhatsApp y redes, metadatos y textos orientados a búsquedas del barrio.
-- **Accesible**: navegación por teclado, foco visible, textos alternativos,
-  contraste alto y respeto por `prefers-reduced-motion`.
-- **Rápido de verdad**: sin librerías ni frameworks. HTML + CSS + JS suman ~20 kB
-  comprimidos, las ilustraciones son SVG de ~1,5 kB, las imágenes cargan en diferido
-  y las tipografías no bloquean el pintado (si Google Fonts tarda, entra la fuente
-  del sistema y la página se ve igual de bien).
+- **Portada con foto del local a pantalla completa**, brasas animadas y el teléfono
+  como botón principal.
+- **Destacados** con los cinco platos que más salen.
+- **Carta completa** por secciones, con pestañas y precios alineados.
+- **Vídeo del asador** que se reproduce solo, en bucle y sin sonido —si no hay vídeo,
+  se queda la foto de portada y no pasa nada.
+- **Galería ampliable** al tocar cualquier foto.
+- **Horario completo** con el martes marcado en rojo y el estado en vivo.
+- **Barra fija en el móvil**: Llamar · Carta · Cómo llegar.
+- **SEO local**: datos estructurados `Restaurant` de Schema.org con la dirección,
+  el teléfono y los dos turnos de cada día; Open Graph para que el enlace se vea
+  bien al pegarlo en WhatsApp.
+- **Accesible**: navegación por teclado, foco visible, textos alternativos y respeto
+  por `prefers-reduced-motion`.
+- **Ligera**: HTML + CSS + JS suman unos 20 kB comprimidos.
 
 ## 🗂 Estructura
 
 ```
-index.html              todo el contenido y el SEO
-assets/css/styles.css   diseño completo (variables de color arriba)
-assets/js/app.js        configuración del negocio + carrito + interacciones
-assets/img/*.svg        ilustraciones, logo, favicon e imagen para redes
+index.html                contenido y SEO
+assets/css/styles.css     diseño (variables de color al principio)
+assets/js/app.js          datos del negocio + interacciones
+assets/img/*.svg          ilustraciones de reserva, logo y favicon
+assets/fotos/             aquí van las fotos y el vídeo reales
 ```
 
-## 🧩 Extras fáciles de añadir
+## 🧩 Extras rápidos
 
-- Cambiar WhatsApp por un pedido a **Glovo / Uber Eats**: sustituye los `href` de
-  `[data-wa-link]`.
-- **Pixel de Meta** o Google Analytics: pega el script antes de `</body>`.
-- **Reservas**: se puede enchufar un formulario o un enlace a un calendario.
+- **WhatsApp**: rellena `whatsapp` en `NEGOCIO` y aparecen los botones solos.
+- **Carta en PDF**: súbela como `assets/carta.pdf` y enlázala desde la sección.
+- **Reservas o pedido online**: se puede enchufar un formulario o un enlace a Glovo
+  o Uber Eats sin tocar el resto.
