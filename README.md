@@ -8,17 +8,21 @@ Sin carrito, sin frameworks, sin base de datos. Tres archivos y unas cuantas fot
 
 ---
 
-## 📸 Fotos
+## 📸 Fotos y logotipo
 
-Las fotos del local ya están puestas: la fachada con el rótulo, la terraza, la
-parrilla y el comedor, recortadas de las fotos originales (fuera la interfaz del
-móvil, encuadre nuevo y un retoque de contraste y color).
+Todo lo que se ve es material real del local, sacado de las dos fotos originales:
+fuera la interfaz del móvil, encuadre nuevo, enderezado y retoque de contraste,
+color y brillo.
 
-**Faltan las fotos de los platos y el vídeo del asador.** Mientras no existan sale
-una ilustración de reserva y la web **nunca se ve rota**. En
-[`assets/fotos/LEEME.md`](assets/fotos/LEEME.md) está la lista de lo que falta, con
-el nombre exacto de cada archivo. Se arrastran a esa carpeta y listo: no hay que
-tocar código.
+- **El logotipo es el rótulo de la fachada**, recortado y puesto derecho. Va en la
+  cabecera y en el pie. El gallo del rótulo hace de icono en la pestaña.
+- La **fachada** manda en la portada, y la galería lleva cuatro encuadres: fachada,
+  terraza, parrilla y comedor.
+- La sección **«Directo de la brasa»** va sobre la foto de la parrilla.
+
+**Faltan las fotos de los platos y el vídeo del asador**: la lista está en
+[`assets/fotos/LEEME.md`](assets/fotos/LEEME.md) con el nombre exacto de cada
+archivo. Se arrastran a esa carpeta y listo, sin tocar código.
 
 ## ⚙️ Datos del negocio
 
@@ -81,7 +85,10 @@ python3 -m http.server 8080   # abre http://localhost:8080
 ## ✅ Qué lleva
 
 - **Portada con la fachada a pantalla completa**: el rótulo se ve entero y el texto
-  cae debajo, sobre la zona oscura. En el móvil carga una versión de 800 px.
+  cae debajo, sobre la zona oscura. En el móvil la foto va entera arriba y el texto
+  debajo, y carga una versión de 800 px.
+- **«Directo de la brasa»**: los cinco platos que más salen, en tarjetas sobre la
+  foto de la parrilla.
 - **Destacados** con los cinco platos que más salen.
 - **Carta completa** por secciones, con pestañas y precios alineados.
 - **Vídeo del asador**: en cuanto exista `assets/fotos/local.mp4` se reproduce solo,
@@ -103,8 +110,8 @@ python3 -m http.server 8080   # abre http://localhost:8080
 index.html                contenido y SEO
 assets/css/styles.css     diseño (variables de color al principio)
 assets/js/app.js          datos del negocio + interacciones
-assets/img/*.svg          ilustraciones de reserva, logo y favicon
-assets/fotos/             fotos del local (y aquí van las de los platos y el vídeo)
+assets/img/*.svg          ilustraciones de reserva (solo saltan si falta una foto)
+assets/fotos/             fotos, logotipo y vídeo del local
 ```
 
 ## 🧩 Extras rápidos
@@ -113,5 +120,5 @@ assets/fotos/             fotos del local (y aquí van las de los platos y el v�
 - **Carta en PDF**: súbela como `assets/carta.pdf` y enlázala desde la sección.
 - **Reservas o pedido online**: se puede enchufar un formulario o un enlace a Glovo
   o Uber Eats sin tocar el resto.
-- **Logotipo**: ahora se usa una marca provisional. Con el logo original del gallo en
-  `.png` o `.svg` queda perfecto en la cabecera y en el favicon.
+- **Logotipo**: el actual está recortado de la foto del rótulo. Con el archivo
+  original (`.png` o `.svg`) quedaría más fino, sobre todo el gallo del icono.

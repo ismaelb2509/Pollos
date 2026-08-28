@@ -125,11 +125,12 @@ h1,h2,h3,h4{
 .site-header.is-stuck{background:rgba(11,9,8,.93);border-bottom-color:var(--line);box-shadow:0 12px 30px -20px #000}
 .header-inner{display:flex;align-items:center;gap:20px}
 
-.brand{display:flex;align-items:center;gap:11px;flex:none;min-width:0}
-.brand-mark{border-radius:12px}
-.brand-text{display:flex;flex-direction:column;line-height:1;min-width:0}
-.brand-text strong{font-family:var(--display);font-size:21px;letter-spacing:.8px;text-transform:uppercase;white-space:nowrap}
-.brand-text small{font-size:10.5px;letter-spacing:2.2px;text-transform:uppercase;color:var(--ember-2);margin-top:4px;white-space:nowrap}
+.brand{display:flex;align-items:center;flex:none;min-width:0}
+.brand-rotulo{
+  width:auto;height:52px;border-radius:8px;
+  border:1px solid rgba(255,197,61,.45);
+  box-shadow:0 6px 18px -8px rgba(255,106,31,.7);
+}
 
 .nav{display:flex;gap:4px;margin-left:auto;flex:none}
 .nav a{padding:9px 13px;border-radius:999px;font-size:14.5px;font-weight:600;color:var(--muted);transition:color .2s,background .2s}
@@ -274,7 +275,60 @@ h1,h2,h3,h4{
 .section-head h2{font-size:clamp(34px,5.2vw,58px);margin-bottom:16px}
 .section-sub{margin:0;color:var(--muted);font-size:16.5px}
 
-/* ------------------------- DESTACADOS ------------------------- */
+/* ------------------------- LA BRASA (destacados) ------------------------- */
+.brasa{position:relative;isolation:isolate;overflow:hidden}
+.brasa-fondo{
+  position:absolute;inset:0;z-index:-2;
+  width:100%;height:100%;object-fit:cover;
+}
+.brasa-velo{
+  position:absolute;inset:0;z-index:-1;
+  background:
+    linear-gradient(180deg,var(--ink) 0%,rgba(11,9,8,.72) 22%,rgba(11,9,8,.72) 74%,var(--ink) 100%),
+    radial-gradient(60% 50% at 20% 40%,rgba(255,106,31,.16),rgba(255,106,31,0) 70%);
+}
+
+.brasa-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:16px;align-items:stretch;
+}
+.brasa-item{
+  display:flex;flex-direction:column;gap:8px;
+  padding:24px 22px 22px;
+  border:1px solid rgba(255,255,255,.14);border-radius:var(--radius-lg);
+  background:rgba(18,14,12,.72);
+  backdrop-filter:blur(10px) saturate(130%);
+  transition:transform .28s cubic-bezier(.2,.8,.3,1),border-color .28s,background .28s;
+}
+.brasa-item:hover{transform:translateY(-5px);border-color:rgba(255,197,61,.5);background:rgba(18,14,12,.86)}
+.brasa-item-grande{
+  grid-column:span 2;grid-row:span 2;
+  justify-content:flex-end;
+  padding:32px 30px 30px;
+  background:
+    linear-gradient(180deg,rgba(18,14,12,.35) 0%,rgba(18,14,12,.86) 62%),
+    rgba(18,14,12,.5);
+}
+.brasa-item h3{font-size:21px}
+.brasa-item-grande h3{font-size:clamp(28px,3.2vw,40px)}
+.brasa-item p{margin:0;font-size:14.6px;color:var(--muted);line-height:1.55}
+.brasa-item-grande p{font-size:16.5px;max-width:38ch}
+.brasa-item .brasa-precio{
+  margin-top:auto!important;padding-top:10px;
+  font-family:var(--display);font-size:24px;color:var(--gold);
+  letter-spacing:.5px;font-variant-numeric:tabular-nums;
+}
+.brasa-item-grande .brasa-precio{font-size:38px;padding-top:14px;color:var(--gold)}
+
+@media (max-width:1000px){
+  .brasa-grid{grid-template-columns:repeat(2,1fr)}
+  .brasa-item-grande{grid-column:span 2;grid-row:auto}
+}
+@media (max-width:560px){
+  .brasa-grid{grid-template-columns:1fr}
+  .brasa-item-grande{grid-column:auto}
+}
+
+/* ------------------------- DESTACADOS (en desuso) ------------------------- */
 .destacados{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
 .destacado{
   position:relative;display:flex;flex-direction:column;
@@ -297,7 +351,7 @@ h1,h2,h3,h4{
 .destacado-grande h3{font-size:32px}
 .destacado p{margin:0;font-size:14.6px;color:var(--muted);line-height:1.55}
 .destacado-grande p{font-size:16px}
-.destacado-precio{
+.destacado .destacado-precio{
   margin-top:auto!important;padding-top:6px;
   font-family:var(--display);font-size:24px;color:var(--gold);letter-spacing:.5px;
   font-variant-numeric:tabular-nums;

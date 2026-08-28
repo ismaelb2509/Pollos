@@ -18,8 +18,8 @@
 <meta property="og:image:height" content="1100">
 <meta name="twitter:card" content="summary_large_image">
 
-<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="assets/img/favicon.svg">
+<link rel="icon" href="assets/fotos/gallo.png" type="image/png">
+<link rel="apple-touch-icon" href="assets/fotos/gallo.png">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -62,12 +62,9 @@
 <!-- ================= HEADER ================= -->
 <header class="site-header" id="top">
   <div class="wrap header-inner">
-    <a class="brand" href="#top" aria-label="Pollo Express Playa San Juan, inicio">
-      <img src="assets/img/logo.svg" alt="" width="44" height="44" class="brand-mark">
-      <span class="brand-text">
-        <strong data-biz="name">Pollo Express</strong>
-        <small>Fontana · Playa de San Juan</small>
-      </span>
+    <a class="brand" href="#top">
+      <img class="brand-rotulo" src="assets/fotos/rotulo.jpg"
+           alt="Pollo Express Fontana" width="700" height="230">
     </a>
 
     <nav class="nav" id="nav" aria-label="Navegación principal">
@@ -159,75 +156,51 @@
 </div>
 
 <!-- ================= DESTACADOS ================= -->
-<section class="section" id="destacados" aria-labelledby="destacados-title">
+<!-- Cuando lleguen las fotos de los platos, cada .brasa-item puede llevar su
+     <img> arriba: assets/fotos/pollo.jpg, entrecot.jpg, tira.jpg, patata.jpg… -->
+<section class="section brasa" id="destacados" aria-labelledby="destacados-title">
+  <img class="brasa-fondo" src="assets/fotos/parrilla-fondo.jpg" alt="" aria-hidden="true" loading="lazy">
+  <div class="brasa-velo" aria-hidden="true"></div>
+
   <div class="wrap">
     <header class="section-head reveal">
       <p class="kicker">Lo que más sale</p>
       <h2 id="destacados-title">Directo de la brasa</h2>
-      <p class="section-sub">Todo se hace al carbón, por encargo y al momento.</p>
+      <p class="section-sub">Carbón encendido todos los días. Se hace por encargo y sale al momento.</p>
     </header>
 
-    <div class="destacados">
-      <article class="destacado destacado-grande reveal">
-        <div class="destacado-media">
-          <img src="assets/fotos/pollo.jpg" alt="Pollo entero a la brasa"
-               data-fallback="assets/img/plato-pollo.svg" loading="lazy" width="800" height="600">
-        </div>
-        <div class="destacado-body">
-          <span class="chip chip-hot">La especialidad</span>
-          <h3>Pollo entero a la brasa</h3>
-          <p>El de siempre: al carbón, girando despacio hasta que la piel queda crujiente. Es lo que nos da el nombre.</p>
-          <p class="destacado-precio">12,50 €</p>
-        </div>
+    <div class="brasa-grid">
+      <article class="brasa-item brasa-item-grande reveal">
+        <span class="chip chip-hot">La especialidad</span>
+        <h3>Pollo entero a la brasa</h3>
+        <p>El de siempre: al carbón, girando despacio hasta que la piel queda crujiente. Es el que nos da el nombre.</p>
+        <p class="brasa-precio">12,50 €</p>
       </article>
 
-      <article class="destacado reveal">
-        <div class="destacado-media">
-          <img src="assets/fotos/entrecot.jpg" alt="Entrecot de ternera a la brasa"
-               data-fallback="assets/img/plato-secreto.svg" loading="lazy" width="600" height="450">
-        </div>
-        <div class="destacado-body">
-          <h3>Entrecot de ternera</h3>
-          <p>Al punto que pidas.</p>
-          <p class="destacado-precio">15,90 €</p>
-        </div>
+      <article class="brasa-item reveal">
+        <h3>Entrecote de ternera</h3>
+        <p>Al punto que pidas.</p>
+        <p class="brasa-precio">15,90 €</p>
       </article>
 
-      <article class="destacado reveal">
-        <div class="destacado-media">
-          <img src="assets/fotos/tira.jpg" alt="Tira de asado a la brasa"
-               data-fallback="assets/img/plato-costillas.svg" loading="lazy" width="600" height="450">
-        </div>
-        <div class="destacado-body">
-          <h3>Tira de asado</h3>
-          <p>Corte argentino, lento y tierno.</p>
-          <p class="destacado-precio">13,90 €</p>
-        </div>
+      <article class="brasa-item reveal">
+        <h3>Tira de asado</h3>
+        <p>Corte argentino, lento y tierno.</p>
+        <p class="brasa-precio">13,90 €</p>
       </article>
 
-      <article class="destacado reveal">
-        <div class="destacado-media">
-          <img src="assets/fotos/patata.jpg" alt="Patata asada"
-               data-fallback="assets/img/plato-patata.svg" loading="lazy" width="600" height="450">
-        </div>
-        <div class="destacado-body">
-          <h3>Patata asada</h3>
-          <p>Hecha en la propia brasa.</p>
-          <p class="destacado-precio">3,50 €</p>
-        </div>
+      <article class="brasa-item reveal">
+        <h3>Patata asada</h3>
+        <p>Hecha en la propia brasa, con alioli.</p>
+        <p class="brasa-precio">3,50 €</p>
       </article>
 
-      <article class="destacado reveal">
-        <div class="destacado-media">
-          <img src="assets/fotos/croquetas.jpg" alt="Croquetas caseras"
-               data-fallback="assets/img/plato-croquetas.svg" loading="lazy" width="600" height="450">
-        </div>
-        <div class="destacado-body">
-          <h3>Croquetas caseras</h3>
-          <p>De jamón, de boletus o mixtas.</p>
-          <p class="destacado-precio">5,90 €</p>
-        </div>
+      <article class="brasa-item reveal">
+        <h3>Croquetas caseras</h3>
+        <p>De jamón, de boletus o mixtas.</p>
+        <p class="brasa-precio">5,90 €</p>
       </article>
+    </div>
   </div>
 </section>
 
@@ -509,8 +482,8 @@
   <div class="wrap footer-grid">
     <div>
       <a class="brand" href="#top">
-        <img src="assets/img/logo.svg" alt="" width="40" height="40" class="brand-mark">
-        <span class="brand-text"><strong data-biz="name">Pollo Express</strong><small>Fontana · Playa de San Juan</small></span>
+        <img class="brand-rotulo" src="assets/fotos/rotulo.jpg"
+             alt="Pollo Express Fontana" width="700" height="230" loading="lazy">
       </a>
       <p class="footer-note">Asador de carbón en la Playa de San Juan, Alicante. Pollo, costillas y carnes a la brasa para comer aquí o llevar.</p>
     </div>
