@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="600" height="600" role="img">
+ <defs>
+  <linearGradient id="bg1" x1="0" y1="0" x2=".85" y2="1">
+   <stop offset="0" stop-color="#301810"/><stop offset="1" stop-color="#7A3714"/>
+  </linearGradient>
+  <radialGradient id="gg1" cx="50%" cy="44%" r="58%">
+   <stop offset="0" stop-color="#FFE0AC" stop-opacity=".26"/>
+   <stop offset="1" stop-color="#FFE0AC" stop-opacity="0"/>
+  </radialGradient>
+  <pattern id="pg1" width="14" height="14" patternTransform="rotate(35)" patternUnits="userSpaceOnUse">
+   <line x1="0" y1="0" x2="0" y2="14" stroke="#FFE0AC" stroke-opacity=".06" stroke-width="3"/>
+  </pattern>
+ </defs>
+ <rect width="600" height="600" fill="url(#bg1)"/>
+ <rect width="600" height="600" fill="url(#pg1)"/>
+ <rect width="600" height="600" fill="url(#gg1)"/>
+ <circle cx="300" cy="288" r="192" fill="#FFE0AC" fill-opacity=".07" stroke="#FFE0AC" stroke-opacity=".16" stroke-width="2"/>
+ <g transform="translate(150.0 138.0) scale(3.0000)" fill="none" stroke="#FFE0AC"
+    stroke-width="5" stroke-linecap="round" stroke-linejoin="round" color="#FFE0AC">
+  
+ <path d="M16 76c2-26 20-46 46-52 6-2 10 2 8 8-8 24-26 40-48 48-4 2-7 0-6-4Z"/>
+ <path d="M42 90c2-16 12-28 28-34 4-2 7 1 6 5-5 14-16 24-30 31-3 1-5 0-4-2Z"/>
+ <path d="M28 66c10-10 22-20 34-26"/>
+
+ </g>
+ <ellipse cx="300" cy="528" rx="132" ry="14" fill="#000" fill-opacity=".26"/>
+</svg>
