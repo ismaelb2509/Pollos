@@ -5,7 +5,7 @@
    ===================================================================== */
 const NEGOCIO = {
   nombre:     "Pollo Express",
-  nombreLargo:"Pollo Express Playa San Juan",
+  nombreLargo:"Pollo Express Fontana · Playa de San Juan",
   telefono:   "+34966765321",
   telefonoTxt:"966 76 53 21",
   whatsapp:   "",                       // pon aquí el móvil de pedidos (34XXXXXXXXX) y aparecerán los botones de WhatsApp
@@ -205,7 +205,7 @@ const NEGOCIO = {
         v.addEventListener('loadeddata', () => {
           hueco.classList.add('tiene-video');
           hueco.prepend(v);
-          v.play().catch(() => { v.controls = true; });
+          v.play().catch(() => { v.controls = true; });   // si el navegador no deja autoplay, mandos a la vista
         });
       })
       .catch(() => { /* sin vídeo todavía: se queda la foto de portada */ });

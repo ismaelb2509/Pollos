@@ -13,7 +13,9 @@
 <meta property="og:site_name" content="Pollo Express Playa San Juan">
 <meta property="og:title" content="Pollo Express Playa San Juan — Brasa de carbón en Alicante">
 <meta property="og:description" content="Pollo, costillas y carnes a la brasa junto a la playa. Para llevar en 15 minutos: 966 76 53 21.">
-<meta property="og:image" content="assets/img/og-cover.svg">
+<meta property="og:image" content="assets/fotos/hero.jpg">
+<meta property="og:image:width" content="1600">
+<meta property="og:image:height" content="1100">
 <meta name="twitter:card" content="summary_large_image">
 
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
@@ -64,7 +66,7 @@
       <img src="assets/img/logo.svg" alt="" width="44" height="44" class="brand-mark">
       <span class="brand-text">
         <strong data-biz="name">Pollo Express</strong>
-        <small>Playa de San Juan</small>
+        <small>Fontana · Playa de San Juan</small>
       </span>
     </a>
 
@@ -103,8 +105,9 @@
 
 <!-- ================= HERO ================= -->
 <section class="hero" aria-labelledby="hero-title">
-  <!-- FOTO DEL LOCAL: pon assets/fotos/hero.jpg (1600×1100 aprox.) -->
-  <img class="hero-foto" src="assets/fotos/hero.jpg" alt="" aria-hidden="true"
+  <img class="hero-foto" src="assets/fotos/hero.jpg"
+       srcset="assets/fotos/hero-800.jpg 800w, assets/fotos/hero.jpg 1600w"
+       sizes="100vw" alt="" aria-hidden="true"
        data-fallback="assets/img/brasas.svg" fetchpriority="high">
   <div class="hero-velo" aria-hidden="true"></div>
   <div class="embers" aria-hidden="true">
@@ -119,13 +122,12 @@
       </p>
 
       <h1 id="hero-title" class="reveal">
-        Brasa de carbón<br>
-        <span class="fire-text">a dos calles</span><br>
-        de la playa
+        A la brasa,<br>
+        <span class="fire-text">con un sabor diferente</span>
       </h1>
 
       <p class="lead reveal">
-        Pollo, costillas y carnes hechas al carbón en la Playa de San Juan.
+        Carbón de verdad en la Avenida San Sebastián, a dos calles de la playa.
         Llamas, lo pides y en quince minutos lo tienes listo para llevar
         —o te sientas y te invitamos al té moruno.
       </p>
@@ -139,11 +141,6 @@
         <a class="btn btn-wa btn-lg" href="#" data-wa-link hidden>Pedir por WhatsApp</a>
       </div>
 
-      <ul class="hero-trust reveal">
-        <li><strong>Carbón</strong><span>nada de eléctrico</span></li>
-        <li><strong>15'</strong><span>listo para llevar</span></li>
-        <li><strong>60 m</strong><span>de la arena</span></li>
-      </ul>
     </div>
 
   </div>
@@ -152,12 +149,12 @@
 <!-- ================= TICKER ================= -->
 <div class="ticker" aria-hidden="true">
   <div class="ticker-track">
-    <span>Pollo a la brasa</span><i>●</i><span>Costillas de cerdo</span><i>●</i>
-    <span>Secreto ibérico</span><i>●</i><span>Patata asada</span><i>●</i>
-    <span>Entrecot</span><i>●</i><span>Para llevar</span><i>●</i>
-    <span>Pollo a la brasa</span><i>●</i><span>Costillas de cerdo</span><i>●</i>
-    <span>Secreto ibérico</span><i>●</i><span>Patata asada</span><i>●</i>
-    <span>Entrecot</span><i>●</i><span>Para llevar</span><i>●</i>
+    <span>Pollo a la brasa</span><i>●</i><span>Entrecote de ternera</span><i>●</i>
+    <span>Tira de asado</span><i>●</i><span>Patata asada</span><i>●</i>
+    <span>Croquetas caseras</span><i>●</i><span>Para llevar</span><i>●</i>
+    <span>Pollo a la brasa</span><i>●</i><span>Entrecote de ternera</span><i>●</i>
+    <span>Tira de asado</span><i>●</i><span>Patata asada</span><i>●</i>
+    <span>Croquetas caseras</span><i>●</i><span>Para llevar</span><i>●</i>
   </div>
 </div>
 
@@ -177,61 +174,60 @@
                data-fallback="assets/img/plato-pollo.svg" loading="lazy" width="800" height="600">
         </div>
         <div class="destacado-body">
-          <span class="chip chip-hot">El de siempre</span>
+          <span class="chip chip-hot">La especialidad</span>
           <h3>Pollo entero a la brasa</h3>
-          <p>Al carbón, girando despacio hasta que la piel queda crujiente. Con su jugo y alioli de la casa.</p>
+          <p>El de siempre: al carbón, girando despacio hasta que la piel queda crujiente. Es lo que nos da el nombre.</p>
           <p class="destacado-precio">12,50 €</p>
         </div>
       </article>
 
       <article class="destacado reveal">
         <div class="destacado-media">
-          <img src="assets/fotos/costillas.jpg" alt="Costillas de cerdo a la brasa"
-               data-fallback="assets/img/plato-costillas.svg" loading="lazy" width="600" height="450">
-        </div>
-        <div class="destacado-body">
-          <h3>Costillas de cerdo</h3>
-          <p>Tiernas por dentro, tostadas por fuera.</p>
-          <p class="destacado-precio">9,90 €</p>
-        </div>
-      </article>
-
-      <article class="destacado reveal">
-        <div class="destacado-media">
-          <img src="assets/fotos/secreto.jpg" alt="Secreto ibérico a la brasa"
+          <img src="assets/fotos/entrecot.jpg" alt="Entrecot de ternera a la brasa"
                data-fallback="assets/img/plato-secreto.svg" loading="lazy" width="600" height="450">
         </div>
         <div class="destacado-body">
-          <h3>Secreto ibérico</h3>
-          <p>De los platos que más repiten.</p>
-          <p class="destacado-precio">12,90 €</p>
+          <h3>Entrecot de ternera</h3>
+          <p>Al punto que pidas.</p>
+          <p class="destacado-precio">15,90 €</p>
         </div>
       </article>
 
       <article class="destacado reveal">
         <div class="destacado-media">
-          <img src="assets/fotos/patata.jpg" alt="Patata asada con alioli"
+          <img src="assets/fotos/tira.jpg" alt="Tira de asado a la brasa"
+               data-fallback="assets/img/plato-costillas.svg" loading="lazy" width="600" height="450">
+        </div>
+        <div class="destacado-body">
+          <h3>Tira de asado</h3>
+          <p>Corte argentino, lento y tierno.</p>
+          <p class="destacado-precio">13,90 €</p>
+        </div>
+      </article>
+
+      <article class="destacado reveal">
+        <div class="destacado-media">
+          <img src="assets/fotos/patata.jpg" alt="Patata asada"
                data-fallback="assets/img/plato-patata.svg" loading="lazy" width="600" height="450">
         </div>
         <div class="destacado-body">
           <h3>Patata asada</h3>
-          <p>Hecha en la brasa, con alioli.</p>
+          <p>Hecha en la propia brasa.</p>
           <p class="destacado-precio">3,50 €</p>
         </div>
       </article>
 
       <article class="destacado reveal">
         <div class="destacado-media">
-          <img src="assets/fotos/bravas.jpg" alt="Patatas bravas"
-               data-fallback="assets/img/plato-bravas.svg" loading="lazy" width="600" height="450">
+          <img src="assets/fotos/croquetas.jpg" alt="Croquetas caseras"
+               data-fallback="assets/img/plato-croquetas.svg" loading="lazy" width="600" height="450">
         </div>
         <div class="destacado-body">
-          <h3>Patatas bravas</h3>
-          <p>Con nuestra salsa picante.</p>
-          <p class="destacado-precio">4,20 €</p>
+          <h3>Croquetas caseras</h3>
+          <p>De jamón, de boletus o mixtas.</p>
+          <p class="destacado-precio">5,90 €</p>
         </div>
       </article>
-    </div>
   </div>
 </section>
 
@@ -248,7 +244,7 @@
       <button type="button" class="tab is-active" aria-pressed="true" data-filter="todo">Todo</button>
       <button type="button" class="tab" aria-pressed="false" data-filter="brasa">A la brasa</button>
       <button type="button" class="tab" aria-pressed="false" data-filter="acompanar">Para acompañar</button>
-      <button type="button" class="tab" aria-pressed="false" data-filter="menus">Menús para llevar</button>
+      <button type="button" class="tab" aria-pressed="false" data-filter="menus">Para llevar</button>
       <button type="button" class="tab" aria-pressed="false" data-filter="postres">Postres y bebidas</button>
     </div>
 
@@ -257,62 +253,61 @@
       <section class="carta-grupo reveal is-in" data-cat="brasa" aria-labelledby="g-brasa">
         <h3 id="g-brasa" class="carta-titulo">A la brasa</h3>
         <ul class="carta-lista">
-          <li><div><b>Pollo entero</b><small>Con su jugo y alioli de la casa</small></div><span>12,50 €</span></li>
-          <li><div><b>Medio pollo</b><small>La ración justa para dos</small></div><span>6,90 €</span></li>
-          <li><div><b>Costillas de cerdo</b><small>Ración</small></div><span>9,90 €</span></li>
-          <li><div><b>Secreto ibérico</b></div><span>12,90 €</span></li>
+          <li><div><b>Pollo entero</b><small>Nuestra especialidad, al carbón</small></div><span>12,50 €</span></li>
+          <li><div><b>Medio pollo</b></div><span>6,90 €</span></li>
           <li><div><b>Entrecot de ternera</b></div><span>15,90 €</span></li>
-          <li><div><b>Chuletas de cordero</b></div><span>14,50 €</span></li>
-          <li><div><b>Pincho moruno</b><small>Dos brochetas</small></div><span>6,90 €</span></li>
-          <li><div><b>Chorizo criollo</b></div><span>5,50 €</span></li>
-          <li><div><b>Alitas de pollo</b><small>Ración</small></div><span>6,50 €</span></li>
-          <li><div><b>Hamburguesa de la casa</b><small>Con patatas</small></div><span>7,90 €</span></li>
+          <li><div><b>Lomo alto</b></div><span>16,90 €</span></li>
+          <li><div><b>Vacío</b></div><span>14,50 €</span></li>
+          <li><div><b>Tira de asado</b></div><span>13,90 €</span></li>
+          <li><div><b>Secreto ibérico</b></div><span>12,90 €</span></li>
+          <li><div><b>Butifarrón</b></div><span>5,50 €</span></li>
+          <li><div><b>Morcilla</b></div><span>5,20 €</span></li>
+          <li><div><b>Chorizo criollo o ibérico</b></div><span>5,50 €</span></li>
         </ul>
       </section>
 
       <section class="carta-grupo reveal is-in" data-cat="acompanar" aria-labelledby="g-acompanar">
         <h3 id="g-acompanar" class="carta-titulo">Para acompañar</h3>
         <ul class="carta-lista">
-          <li><div><b>Patata asada</b><small>Hecha en la brasa, con alioli</small></div><span>3,50 €</span></li>
-          <li><div><b>Patatas fritas caseras</b></div><span>3,20 €</span></li>
+          <li><div><b>Patata asada</b><small>Hecha en la brasa</small></div><span>3,50 €</span></li>
+          <li><div><b>Patatas fritas</b></div><span>3,20 €</span></li>
           <li><div><b>Patatas bravas</b></div><span>4,20 €</span></li>
-          <li><div><b>Ensalada mixta</b></div><span>5,50 €</span></li>
-          <li><div><b>Ensalada de la casa</b><small>Con ventresca</small></div><span>7,50 €</span></li>
-          <li><div><b>Pimientos de Padrón</b></div><span>5,20 €</span></li>
-          <li><div><b>Croquetas caseras</b><small>6 unidades</small></div><span>5,90 €</span></li>
-          <li><div><b>Pan con alioli</b></div><span>2,50 €</span></li>
+          <li><div><b>Croquetas de jamón</b><small>6 unidades</small></div><span>5,90 €</span></li>
+          <li><div><b>Croquetas de boletus</b><small>6 unidades</small></div><span>6,20 €</span></li>
+          <li><div><b>Mix de croquetas</b></div><span>6,50 €</span></li>
+          <li><div><b>Ensaladilla rusa</b></div><span>5,50 €</span></li>
+          <li><div><b>Ensalada de la casa</b></div><span>6,50 €</span></li>
         </ul>
       </section>
 
       <section class="carta-grupo reveal is-in" data-cat="menus" aria-labelledby="g-menus">
-        <h3 id="g-menus" class="carta-titulo">Menús para llevar</h3>
+        <h3 id="g-menus" class="carta-titulo">Para llevar <span class="etiqueta-propuesta">propuesta</span></h3>
         <ul class="carta-lista carta-lista-menus">
           <li><div><b>Menú Pareja</b><small>1 pollo + patatas + ensalada + 2 bebidas</small></div><span>18,90 €</span></li>
-          <li><div><b>Menú Familiar</b><small>2 pollos + patatas grandes + ensalada + pan + refresco 1,5 L</small></div><span>29,90 €</span></li>
-          <li><div><b>Menú Brasa</b><small>1 pollo + costillas + patata asada + pan</small></div><span>24,90 €</span></li>
+          <li><div><b>Menú Familiar</b><small>2 pollos + patatas grandes + ensalada + pan</small></div><span>29,90 €</span></li>
+          <li><div><b>Menú Brasa</b><small>1 pollo + tira de asado + patata asada + pan</small></div><span>26,90 €</span></li>
         </ul>
+        <p class="carta-aviso">Todo lo de la carta se puede pedir para llevar. Estos menús son una idea nuestra: decidnos cuáles queréis ofrecer.</p>
       </section>
 
       <section class="carta-grupo reveal is-in" data-cat="postres" aria-labelledby="g-postres">
         <h3 id="g-postres" class="carta-titulo">Postres y bebidas</h3>
         <ul class="carta-lista">
-          <li><div><b>Flan de la casa</b></div><span>3,50 €</span></li>
-          <li><div><b>Tarta de queso</b></div><span>4,50 €</span></li>
-          <li><div><b>Helado</b></div><span>3,20 €</span></li>
+          <li><div><b>Postres caseros</b><small>Los del día, pregunta en la mesa</small></div><span>—</span></li>
           <li class="carta-destacada"><div><b>Té moruno</b><small>Al terminar, invita la casa</small></div><span>Gratis</span></li>
           <li><div><b>Refresco</b></div><span>2,20 €</span></li>
           <li><div><b>Caña o botellín</b></div><span>2,20 €</span></li>
-          <li><div><b>Agua 1,5 L</b></div><span>1,80 €</span></li>
+          <li><div><b>Agua</b></div><span>1,80 €</span></li>
           <li><div><b>Copa de vino de la casa</b></div><span>2,50 €</span></li>
         </ul>
       </section>
 
     </div>
 
-    <!-- Cambia esta nota por «IVA incluido» cuando los precios sean los definitivos -->
+    <!-- Sustituye esta nota por «IVA incluido» cuando los precios sean los definitivos -->
     <p class="carta-nota reveal">
-      Carta de muestra con precios orientativos. Pásanos la carta real y la dejamos exacta
-      —también en PDF descargable si te interesa.
+      Los platos están sacados de los carteles del local; <b>los precios son orientativos</b>.
+      Pásanos la carta real y la dejamos exacta —y en PDF descargable si te interesa.
     </p>
   </div>
 </section>
@@ -342,9 +337,6 @@
     <div class="video-slot reveal" id="video-slot">
       <img src="assets/fotos/video-portada.jpg" alt="El asador de Pollo Express en marcha"
            data-fallback="assets/img/gal-1.svg" loading="lazy" width="800" height="600">
-      <span class="video-play" aria-hidden="true">
-        <svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z"/></svg>
-      </span>
     </div>
   </div>
 </section>
@@ -398,18 +390,15 @@
     <header class="section-head reveal">
       <p class="kicker">El sitio</p>
       <h2 id="galeria-title">Así se ve por dentro</h2>
-      <p class="section-sub">Toca cualquier foto para verla grande.</p>
+      <p class="section-sub">La fachada, la terraza, la parrilla y el comedor. Toca cualquier foto para verla grande.</p>
     </header>
   </div>
 
-  <!-- FOTOS DEL LOCAL: sustituye assets/fotos/local-1.jpg … local-6.jpg (cuadradas, 1200×1200) -->
   <div class="gallery reveal">
-    <figure><button type="button" aria-label="Ampliar foto del asador"><img src="assets/fotos/local-1.jpg" alt="El asador de carbón en marcha" data-fallback="assets/img/gal-1.svg" loading="lazy" width="1200" height="1200"></button></figure>
-    <figure><button type="button" aria-label="Ampliar foto de las costillas"><img src="assets/fotos/local-2.jpg" alt="Costillas y carnes en la parrilla" data-fallback="assets/img/gal-2.svg" loading="lazy" width="1200" height="1200"></button></figure>
-    <figure><button type="button" aria-label="Ampliar foto de las patatas"><img src="assets/fotos/local-3.jpg" alt="Patatas recién hechas" data-fallback="assets/img/gal-3.svg" loading="lazy" width="1200" height="1200"></button></figure>
-    <figure><button type="button" aria-label="Ampliar foto de una mesa servida"><img src="assets/fotos/local-4.jpg" alt="Mesa servida en el comedor" data-fallback="assets/img/gal-4.svg" loading="lazy" width="1200" height="1200"></button></figure>
-    <figure><button type="button" aria-label="Ampliar foto de las salsas"><img src="assets/fotos/local-5.jpg" alt="Alioli y salsas de la casa" data-fallback="assets/img/gal-5.svg" loading="lazy" width="1200" height="1200"></button></figure>
-    <figure><button type="button" aria-label="Ampliar foto de un pedido para llevar"><img src="assets/fotos/local-6.jpg" alt="Pedido preparado para llevar" data-fallback="assets/img/gal-6.svg" loading="lazy" width="1200" height="1200"></button></figure>
+    <figure><button type="button" aria-label="Ampliar la foto de la fachada"><img src="assets/fotos/local-1.jpg" alt="Fachada de Pollo Express con el rótulo iluminado" data-fallback="assets/img/gal-1.svg" loading="lazy" width="1100" height="1100"></button></figure>
+    <figure><button type="button" aria-label="Ampliar la foto de la terraza"><img src="assets/fotos/local-2.jpg" alt="Terraza con mesas a la sombra" data-fallback="assets/img/gal-4.svg" loading="lazy" width="1100" height="1100"></button></figure>
+    <figure><button type="button" aria-label="Ampliar la foto de la parrilla"><img src="assets/fotos/local-3.jpg" alt="La parrilla de carbón y los carteles de la carta" data-fallback="assets/img/gal-2.svg" loading="lazy" width="1100" height="1100"></button></figure>
+    <figure><button type="button" aria-label="Ampliar la foto del comedor"><img src="assets/fotos/local-4.jpg" alt="Comedor cubierto con las lámparas encendidas" data-fallback="assets/img/gal-6.svg" loading="lazy" width="1100" height="1100"></button></figure>
   </div>
 </section>
 
@@ -521,7 +510,7 @@
     <div>
       <a class="brand" href="#top">
         <img src="assets/img/logo.svg" alt="" width="40" height="40" class="brand-mark">
-        <span class="brand-text"><strong data-biz="name">Pollo Express</strong><small>Playa de San Juan</small></span>
+        <span class="brand-text"><strong data-biz="name">Pollo Express</strong><small>Fontana · Playa de San Juan</small></span>
       </a>
       <p class="footer-note">Asador de carbón en la Playa de San Juan, Alicante. Pollo, costillas y carnes a la brasa para comer aquí o llevar.</p>
     </div>

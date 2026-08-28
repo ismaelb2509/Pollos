@@ -1,29 +1,45 @@
 # Fotos y vídeo del local
 
-Deja aquí el material del restaurante con **estos nombres exactos**. Mientras un
-archivo no exista, la web muestra una ilustración de reserva y **nunca se ve rota**.
+## Ya están puestas ✅
 
-| Archivo | Dónde sale | Tamaño recomendado |
+Recortadas de las fotos del local (fuera la interfaz del móvil, encuadre nuevo y
+un retoque de contraste y color):
+
+| Archivo | Dónde sale |
+|---|---|
+| `hero.jpg` + `hero-800.jpg` | Portada. La versión de 800 px la carga el móvil |
+| `local-1.jpg` | Galería · la fachada con el rótulo |
+| `local-2.jpg` | Galería · la terraza |
+| `local-3.jpg` | Galería · la parrilla y los carteles de la carta |
+| `local-4.jpg` | Galería · el comedor |
+| `video-portada.jpg` | Portada de la sección «El local» |
+
+## Faltan por enviar ⏳
+
+Mientras no existan, sale una ilustración de reserva y **la web nunca se ve rota**.
+
+| Archivo | Dónde sale | Tamaño |
 |---|---|---|
-| `hero.jpg` | Fondo de la portada | 1600×1100, horizontal |
 | `pollo.jpg` | Destacado grande | 1200×900 |
-| `costillas.jpg` | Destacado | 900×675 |
-| `secreto.jpg` | Destacado | 900×675 |
-| `patata.jpg` | Destacado | 900×675 |
-| `bravas.jpg` | Destacado | 900×675 |
-| `local-1.jpg` … `local-6.jpg` | Galería | 1200×1200, cuadradas |
-| `video-portada.jpg` | Portada del vídeo | 1200×900 |
-| `local.mp4` | Vídeo de la sección «El local» | 1080p, 10–20 s, **sin sonido**, menos de 8 MB |
+| `entrecot.jpg` | Destacado | 900×675 |
+| `tira.jpg` | Destacado · tira de asado | 900×675 |
+| `patata.jpg` | Destacado · patata asada | 900×675 |
+| `croquetas.jpg` | Destacado | 900×675 |
+| `local.mp4` | Vídeo de «El local» | 1080p, 10–20 s, **sin sonido**, menos de 8 MB |
 
-## Consejos rápidos
+## Cómo hacer las fotos de los platos
 
-- **Formato**: `.jpg` de toda la vida vale. Si puedes, guárdalas en `.webp` al 80 %
-  de calidad: pesan la mitad y se ven igual.
-- **Las que mejor funcionan**: el pollo girando en la brasa, el carbón encendido,
-  un plato servido de cerca y el pedido envuelto para llevar.
-- **Luz**: mejor de día o con la luz del local encendida; nada de flash directo.
-- **Vídeo**: 10–20 segundos de la brasa girando bastan. Se reproduce solo, en bucle
-  y sin sonido, así que no hace falta que se oiga nada.
+- Con el plato recién servido y **luz natural**, cerca de la ventana. Nada de flash.
+- Desde arriba o a 45°, llenando el encuadre: que se vea la brasa y el dorado.
+- Horizontal (apaisada), que es como entra en la web.
+- Con el móvil vale de sobra. Envíalas tal cual y las recorto yo.
 
-Del móvil al ordenador, arrastra los archivos a esta carpeta con el nombre de la
-tabla y listo: no hay que tocar nada de código.
+## Cómo hacer el vídeo
+
+Diez o veinte segundos del pollo girando en la brasa. Se reproduce solo, en bucle
+y sin sonido, así que da igual el ruido del local.
+
+## Añadirlas
+
+Arrastra el archivo a esta carpeta con el nombre de la tabla. No hay que tocar código.
+Si puedes, guarda las fotos en `.webp` al 80 % de calidad: pesan la mitad y se ven igual.

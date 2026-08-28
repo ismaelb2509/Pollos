@@ -8,15 +8,17 @@ Sin carrito, sin frameworks, sin base de datos. Tres archivos y unas cuantas fot
 
 ---
 
-## 📸 Lo primero: las fotos
+## 📸 Fotos
 
-Las fotos y el vídeo del local van en **`assets/fotos/`** con los nombres que indica
-[`assets/fotos/LEEME.md`](assets/fotos/LEEME.md). Mientras un archivo no exista, la
-web muestra una ilustración de reserva hecha a medida, así que **nunca se ve rota**
-ni sale un icono de imagen partida.
+Las fotos del local ya están puestas: la fachada con el rótulo, la terraza, la
+parrilla y el comedor, recortadas de las fotos originales (fuera la interfaz del
+móvil, encuadre nuevo y un retoque de contraste y color).
 
-Cuando llegue el material real basta con arrastrarlo a esa carpeta. No hay que tocar
-código.
+**Faltan las fotos de los platos y el vídeo del asador.** Mientras no existan sale
+una ilustración de reserva y la web **nunca se ve rota**. En
+[`assets/fotos/LEEME.md`](assets/fotos/LEEME.md) está la lista de lo que falta, con
+el nombre exacto de cada archivo. Se arrastran a esa carpeta y listo: no hay que
+tocar código.
 
 ## ⚙️ Datos del negocio
 
@@ -51,13 +53,16 @@ Está en `index.html`, dentro de `<section id="carta">`. Cada plato es una líne
 Para añadir una sección nueva, copia un `<section class="carta-grupo" data-cat="...">`
 y añade su botón en las pestañas de arriba. Nada más.
 
-> **Ojo:** los platos y precios actuales son una **carta de muestra** montada a partir
-> de lo que mencionan las reseñas (pollo, costillas, secreto, patata asada, bravas,
-> té moruno). Hay que sustituirla por la carta real antes de publicar.
+> **Los platos son los reales**, leídos de los carteles que hay sobre la parrilla:
+> entrecote de ternera, lomo alto, vacío, tira de asado, butifarrón, morcilla,
+> chorizo criollo/ibérico, patata asada, patatas fritas, croquetas de jamón y de
+> boletus, mix de croquetas y ensaladilla rusa. **Los precios no**: en la foto no se
+> leen, así que están puestos a ojo y hay que corregirlos antes de publicar.
 >
-> Lo mismo con las opiniones: la sección «Lo que más se repite en Google» resume los
-> temas de las reseñas publicadas, no son citas literales. Conviene poner reseñas
-> textuales de la ficha de Google.
+> Los menús para llevar van marcados como «propuesta» porque son idea nuestra.
+>
+> Las opiniones resumen los temas que más aparecen en las reseñas publicadas; no son
+> citas literales. Conviene sustituirlas por reseñas textuales de la ficha de Google.
 
 ## 🚀 Publicar
 
@@ -75,12 +80,12 @@ python3 -m http.server 8080   # abre http://localhost:8080
 
 ## ✅ Qué lleva
 
-- **Portada con foto del local a pantalla completa**, brasas animadas y el teléfono
-  como botón principal.
+- **Portada con la fachada a pantalla completa**: el rótulo se ve entero y el texto
+  cae debajo, sobre la zona oscura. En el móvil carga una versión de 800 px.
 - **Destacados** con los cinco platos que más salen.
 - **Carta completa** por secciones, con pestañas y precios alineados.
-- **Vídeo del asador** que se reproduce solo, en bucle y sin sonido —si no hay vídeo,
-  se queda la foto de portada y no pasa nada.
+- **Vídeo del asador**: en cuanto exista `assets/fotos/local.mp4` se reproduce solo,
+  en bucle y sin sonido. Mientras tanto se queda la foto del comedor.
 - **Galería ampliable** al tocar cualquier foto.
 - **Horario completo** con el martes marcado en rojo y el estado en vivo.
 - **Barra fija en el móvil**: Llamar · Carta · Cómo llegar.
@@ -89,7 +94,8 @@ python3 -m http.server 8080   # abre http://localhost:8080
   bien al pegarlo en WhatsApp.
 - **Accesible**: navegación por teclado, foco visible, textos alternativos y respeto
   por `prefers-reduced-motion`.
-- **Ligera**: HTML + CSS + JS suman unos 20 kB comprimidos.
+- **Ligera**: HTML + CSS + JS suman unos 20 kB comprimidos; las fotos van en JPEG
+  optimizado y cargan en diferido salvo la de portada.
 
 ## 🗂 Estructura
 
@@ -98,7 +104,7 @@ index.html                contenido y SEO
 assets/css/styles.css     diseño (variables de color al principio)
 assets/js/app.js          datos del negocio + interacciones
 assets/img/*.svg          ilustraciones de reserva, logo y favicon
-assets/fotos/             aquí van las fotos y el vídeo reales
+assets/fotos/             fotos del local (y aquí van las de los platos y el vídeo)
 ```
 
 ## 🧩 Extras rápidos
@@ -107,3 +113,5 @@ assets/fotos/             aquí van las fotos y el vídeo reales
 - **Carta en PDF**: súbela como `assets/carta.pdf` y enlázala desde la sección.
 - **Reservas o pedido online**: se puede enchufar un formulario o un enlace a Glovo
   o Uber Eats sin tocar el resto.
+- **Logotipo**: ahora se usa una marca provisional. Con el logo original del gallo en
+  `.png` o `.svg` queda perfecto en la cabecera y en el favicon.
